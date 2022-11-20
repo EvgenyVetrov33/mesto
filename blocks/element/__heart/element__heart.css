@@ -1,0 +1,9 @@
+.element__heart {
+	align-self: flex-end;
+	padding: 0px 0px 0px 30px;
+	transition: opacity .4s ease 0s;
+}
+
+.element__heart:hover {
+	opacity: 0.6;
+}
