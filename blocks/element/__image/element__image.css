@@ -1,5 +1,5 @@
 .element__image {
 	border-radius: 10px 10px 0 0;
 	vertical-align: top;
-	width: 100%;
+	max-width: 100%;
 }

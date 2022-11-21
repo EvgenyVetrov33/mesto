@@ -1,7 +1,12 @@
 .element__heart {
-	align-self: flex-end;
-	padding: 0px 0px 0px 30px;
+	background: url('../../../images/heart.svg') no-repeat;
+	align-self: center;
+	padding: 0;
 	transition: opacity .4s ease 0s;
+	min-width: 22px;
+	min-height: 19px;
+	border: 0;
+	cursor: pointer;
 }
 
 .element__heart:hover {
