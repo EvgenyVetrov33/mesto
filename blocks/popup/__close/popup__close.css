@@ -3,7 +3,7 @@
 	min-height: 32px;
 	background: transparent url('../../../images/Close-popup.svg') no-repeat;
 	position: absolute;
-	top: -45px;
+	top: -40px;
 	right: -40px;
 	border: 0;
 	transition: opacity .4s ease 0s;
@@ -17,8 +17,8 @@
 
 @media screen and (max-width: 580px) {
 	.popup__close {
-		right: -10px;
-		top: -40px;
+		right: -11px;
+		top: -37px;
 		background-size: 20px;
 	}
 }
