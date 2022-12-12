@@ -27,55 +27,12 @@
 			</div>
 			<button type="button" class="profile__add-button"></button>
 		</section>
-		<section class="elements content__elements">
-			<article class="element elements__element">
-				<img src="images/karachaevsk.jpg" class="element__image" alt="Карачаевск">
-				<div class="element__caption">
-					<h2 class="element__title">Карачаевск</h2>
-					<button type="button" class="element__heart"></button>
-				</div>
-			</article>
-			<article class="element elements__element">
-				<img src="images/gora-elbrus.jpg" class="element__image" alt="Гора Эльбрус">
-				<div class="element__caption">
-					<h2 class="element__title">Гора Эльбрус</h2>
-					<button type="button" class="element__heart"></button>
-				</div>
-			</article>
-			<article class="element elements__element">
-				<img src="images/dombai.jpg" class="element__image" alt="Домбай">
-				<div class="element__caption">
-					<h2 class="element__title">Домбай</h2>
-					<button type="button" class="element__heart"></button>
-				</div>
-			</article>
-			<article class="element elements__element">
-				<img src="images/gora-elbrus2.jpg" class="element__image" alt="Гора Эльбрус">
-				<div class="element__caption">
-					<h2 class="element__title">Гора Эльбрус</h2>
-					<button type="button" class="element__heart"></button>
-				</div>
-			</article>
-			<article class="element elements__element">
-				<img src="images/dombai2.jpg" class="element__image" alt="Домбай">
-				<div class="element__caption">
-					<h2 class="element__title">Домбай</h2>
-					<button type="button" class="element__heart"></button>
-				</div>
-			</article>
-			<article class="element elements__element">
-				<img src="images/karachaevo.jpg" class="element__image" alt="Карачаево">
-				<div class="element__caption">
-					<h2 class="element__title">Карачаево-Черкессия</h2>
-					<button type="button" class="element__heart"></button>
-				</div>
-			</article>
-		</section>
+		<section class="elements content__elements"></section>
 	</main>
 	<footer class="footer">
 		<p class="footer__copyright" lang="en">&copy; 2020 Mesto Russia</p>
 	</footer>
-	<div class="popup">
+	<div class="popup popup-edit">
 		<div class="popup__container">
 			<button type="button" class="popup__close"></button>
 			<h2 class="popup__title">Редактировать профиль</h2>
@@ -84,6 +41,38 @@
 				<input class="popup__input popup__input_input_job" name="job" type="text" placeholder="О себе" value="">
 				<button type="submit" class="popup__button">Сохранить</button>
 			</form>
+		</div>
+	</div>
+	<div class="popup popup-two">
+		<div class="popup__container">
+			<button type="button" class="popup__close"></button>
+			<h2 class="popup__title popup__title-two">Новое место</h2>
+			<form action="#" class="popup__form popup__form-two" name="form">
+				<input class="popup__input popup__input_input_name" name="place-name" type="text" placeholder="Название"
+					value="">
+				<input class="popup__input popup__input_input_job popup__input_input_job-two" name="place-job" type="text"
+					placeholder="Ссылка на картинку" value="">
+				<button type="submit" class="popup__button popup__button-two">Создать</button>
+			</form>
+		</div>
+	</div>
+	<template id="todo-template">
+		<article class="element elements__element">
+			<img src="" class="element__image" alt="">
+			<button type="button" class="element__delete-button"></button>
+			<div class="element__caption">
+				<h2 class="element__title"></h2>
+				<button type="button" class="element__heart"></button>
+			</div>
+		</article>
+	</template>
+	<div class="popup popup-image">
+		<div class="popup__body-container">
+			<button type="button" class="popup__close popup__close_image_popup"></button>
+			<figure class="popup__content-figure">
+				<img src="" class="popup__image-img" alt="">
+				<figcaption class="popup__title-fig"></figcaption>
+			</figure>
 		</div>
 	</div>
 	<script src="scripts/index.js"></script>
