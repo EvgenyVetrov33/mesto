@@ -57,9 +57,6 @@ function setHandlers(form, config) {
 function enableValidation(config) {
 	const formList = Array.from(document.querySelectorAll(config.formSelector));
 	formList.forEach((form) => {
-		form.addEventListener('submit', function (evt) {
-			evt.preventDefault();
-		});
 		setHandlers(form, config);
 	});
 };

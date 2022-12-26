@@ -19,7 +19,6 @@
 	.popup__close {
 		right: -11px;
 		top: -37px;
-		min-width: 20px;
-		min-height: 20px;
+		background-size: 20px;
 	}
 }
