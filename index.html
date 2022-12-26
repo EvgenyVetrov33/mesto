@@ -36,9 +36,17 @@
 		<div class="popup__container">
 			<button type="button" class="popup__close"></button>
 			<h2 class="popup__title">Редактировать профиль</h2>
-			<form action="#" class="popup__form-edit" name="form-edit">
-				<input class="popup__input popup__input_input_name" name="name" type="text" placeholder="Имя" value="">
-				<input class="popup__input popup__input_input_job" name="job" type="text" placeholder="О себе" value="">
+			<form action="#" class="popup__form popup__form-edit" name="form-edit" novalidate>
+				<label class="popup__label">
+					<input id="text-name" class="popup__input popup__input_input_name" name="name" type="text"
+						placeholder="Имя" value="" minlength="2" maxlength="40" required>
+					<span id="text-name-error" class="error"></span>
+				</label>
+				<label class="popup__label">
+					<input id="text-profile" class="popup__input popup__input_input_job" name="job" type="text"
+						placeholder="О себе" value="" minlength="2" maxlength="200" required>
+					<span id="text-profile-error" class="error"></span>
+				</label>
 				<button type="submit" class="popup__button">Сохранить</button>
 			</form>
 		</div>
@@ -47,13 +55,28 @@
 		<div class="popup__container">
 			<button type="button" class="popup__close"></button>
 			<h2 class="popup__title">Новое место</h2>
-			<form action="#" class="popup__form-add" name="form-add">
-				<input class="popup__input popup__input_input_name" name="place-name" type="text" placeholder="Название"
-					value="" required>
-				<input class="popup__input popup__input_input_job" name="place-job" type="url"
-					placeholder="Ссылка на картинку" value="" required>
-				<button type="submit" class="popup__button">Создать</button>
+			<form action="#" class="popup__form popup__form-add" name="form-add" novalidate>
+				<label class="popup__label">
+					<input id="text" class="popup__input popup__input_input_name" name="place-name" type="text"
+						placeholder="Название" value="" minlength="2" maxlength="30" required>
+					<span id="text-error" class="error"></span>
+				</label>
+				<label class="popup__label">
+					<input id="url" class="popup__input popup__input_input_job" name="place-job" type="url"
+						placeholder="Ссылка на картинку" value="" required>
+					<span id="url-error" class="error"></span>
+				</label>
+				<button type="submit" class="popup__button popup__button_disabled" disabled>Создать</button>
 			</form>
+		</div>
+	</div>
+	<div class="popup popup-image">
+		<div class="popup__body-container">
+			<button type="button" class="popup__close popup__close_image_popup"></button>
+			<figure class="popup__content-figure">
+				<img src="#" class="popup__image-img" alt="">
+				<figcaption class="popup__title-fig"></figcaption>
+			</figure>
 		</div>
 	</div>
 	<template id="todo-template">
@@ -66,15 +89,7 @@
 			</div>
 		</article>
 	</template>
-	<div class="popup popup-image">
-		<div class="popup__body-container">
-			<button type="button" class="popup__close popup__close_image_popup"></button>
-			<figure class="popup__content-figure">
-				<img src="#" class="popup__image-img" alt="">
-				<figcaption class="popup__title-fig"></figcaption>
-			</figure>
-		</div>
-	</div>
+	<script src="scripts/validate.js"></script>
 	<script src="scripts/cards.js"></script>
 	<script src="scripts/index.js"></script>
 </body>

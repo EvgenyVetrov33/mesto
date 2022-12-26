@@ -16,6 +16,7 @@ const buttonClosePopupList = document.querySelectorAll('.popup__close');
 const imagePopup = document.querySelector('.popup__image-img');
 const imageCapture = document.querySelector('.popup__title-fig');
 const popupImageOpen = document.querySelector('.popup-image');
+const popupAll = document.querySelectorAll('.popup');
 
 const generateCard = function (card) {
 	const newCard = containerElement.cloneNode(true);
@@ -30,6 +31,7 @@ const generateCard = function (card) {
 		imagePopup.src = card.link;
 		imagePopup.alt = card.name;
 		imageCapture.textContent = card.name;
+		document.addEventListener('keyup', handleKeyUp)
 	});
 	const buttonLikeElement = newCard.querySelector('.element__heart');
 	buttonLikeElement.addEventListener('click', function () {
@@ -52,15 +54,37 @@ const renderCard = function (item) {
 	cardsContainer.prepend(generateCard(item));
 }
 
+popupAll.forEach(item => {
+	item.addEventListener('click', (e) => {
+		if (e.target === item) {
+			item.classList.add('popup_opened');
+			item.classList.remove('popup_opened');
+			document.body.style.overflow = '';
+		}
+	});
+});
+
 initialCards.forEach(function (item) {
 	renderCard(item);
 });
 
+const handleKeyUp = (e) => {
+	const openPopup = document.querySelector('.popup_opened');
+	const key = event.key;
+	if (e.key === 'Escape') {
+		closePopup(openPopup);
+	}
+}
+
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
+
+	document.addEventListener('keyup', handleKeyUp)
 }
 function closePopup(popup) {
 	popup.classList.remove('popup_opened');
+
+	document.removeEventListener('keyup', handleKeyUp)
 }
 // Попап Редактирования
 buttonOpenEditPopup.addEventListener('click', () => {
