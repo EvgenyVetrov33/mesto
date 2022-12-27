@@ -11,7 +11,6 @@ const validationConfig = {
 
 function setError(form, input, config) {
 	const error = form.querySelector(`#${input.id}-error`);
-	console.log(error);
 	input.classList.add(config.inputErrorClass)
 	error.textContent = input.validationMessage
 }
@@ -27,6 +26,15 @@ function validateInput(form, input, config) {
 		setError(form, input, config)
 	} else {
 		hideError(form, input, config)
+	}
+}
+
+function disableButtonForm(form, config) {
+	const buttonSave = form.querySelector(config.submitButtonSelector)
+	if (buttonSave) {
+		buttonSave.classList.remove(config.activeButtonClass)
+		buttonSave.classList.add(config.inactiveButtonClass)
+		buttonSave.disabled = true
 	}
 }
 
