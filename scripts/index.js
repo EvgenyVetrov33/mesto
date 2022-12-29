@@ -17,6 +17,7 @@ const buttonClosePopupList = document.querySelectorAll('.popup__close');
 const imagePopup = document.querySelector('.popup__image-img');
 const imageCapture = document.querySelector('.popup__title-fig');
 const popupImageOpen = document.querySelector('.popup-image');
+const popupButton = popupAddCard.querySelector('.popup__button');
 
 const generateCard = function (card) {
 	const newCard = containerElement.cloneNode(true);
@@ -99,7 +100,7 @@ function handleSubmitEditForm(evt) {
 }
 
 buttonOpenAddPopup.addEventListener('click', () => {
-	disableButtonForm(popupAddCard, validationConfig);
+	disableButtonState(popupButton, validationConfig);
 	formAddCard.reset();
 	openPopup(popupAddCard)
 });

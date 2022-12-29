@@ -29,25 +29,24 @@ function validateInput(form, input, config) {
 	}
 }
 
-function disableButtonForm(form, config) {
-	const buttonSave = form.querySelector(config.submitButtonSelector)
-	if (buttonSave) {
-		buttonSave.classList.remove(config.activeButtonClass)
-		buttonSave.classList.add(config.inactiveButtonClass)
-		buttonSave.disabled = true
-	}
+function disableButtonState(button, config) {
+	button.classList.remove(config.activeButtonClass);
+	button.classList.add(config.inactiveButtonClass);
+	button.disabled = true;
+}
+
+function enableButtonState(button, config) {
+	button.classList.remove(config.inactiveButtonClass);
+	button.classList.add(config.activeButtonClass);
+	button.disabled = false;
 }
 
 function setButtonState(inputs, button, config) {
 	const hasErrors = inputs.some(input => !input.validity.valid);
 	if (hasErrors) {
-		button.classList.add(config.inactiveButtonClass);
-		button.classList.remove(config.activeButtonClass);
-		button.disabled = 'disabled'
+		disableButtonState(button, config);
 	} else {
-		button.classList.remove(config.inactiveButtonClass);
-		button.classList.add(config.activeButtonClass);
-		button.disabled = ''
+		enableButtonState(button, config);
 	}
 }
 
