@@ -16,7 +16,6 @@ export class FormValidator {
 		errorElement.classList.add(this._errorClass);
 		errorElement.textContent = inputElement.validationMessage;
 		inputElement.classList.add(this._inputErrorClass);
-
 	}
 
 	_hiddeInputError(inputElement) {
@@ -38,6 +37,14 @@ export class FormValidator {
 
 	_hasInvalidInput() {
 		return this._inputList.some((inputElement) => !inputElement.validity.valid);
+	}
+
+	resetValidation() {
+		this.toggleButtonState();
+
+		this._inputList.forEach((inputElement) => {
+			this._hiddeInputError(inputElement)
+		});
 	}
 
 	toggleButtonState() {

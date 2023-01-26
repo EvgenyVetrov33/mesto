@@ -13,8 +13,8 @@ const nameInput = document.querySelector('.popup__input_input_name');
 const jobInput = document.querySelector('.popup__input_input_job');
 const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__paragraph');
-const formEditCard = document.querySelector('.popup__form-edit');
-const formAddCard = popupAddCard.querySelector('.popup__form-add');
+const formEdit = document.forms['form-edit'];
+const formAdd = document.forms['form-add'];
 const nameInputAdd = document.querySelector('[name="place-name"]');
 const jobInputAdd = document.querySelector('[name="place-job"]');
 const popups = document.querySelectorAll('.popup');
@@ -38,7 +38,8 @@ function closePopup(popup) {
 buttonOpenEditPopup.addEventListener('click', () => {
 	nameInput.value = profileName.textContent;
 	jobInput.value = profileJob.textContent;
-	openPopup(popupEdit)
+	openPopup(popupEdit);
+	formEditPopupValid.resetValidation();
 });
 
 function handleSubmitEditForm(evt) {
@@ -51,8 +52,9 @@ function handleSubmitEditForm(evt) {
 // Попап добавления карточки
 buttonOpenAddPopup.addEventListener('click', () => {
 	openPopup(popupAddCard);
-	formAddCard.reset();
+	formAdd.reset();
 	formAddPopupValid.toggleButtonState();
+	formAddPopupValid.resetValidation();
 });
 
 const handleSubmitAddNewCard = function (evt) {
@@ -70,7 +72,6 @@ popups.forEach(popup => {
 });
 
 const handleKeyUp = (e) => {
-	const key = event.key;
 	if (e.key === 'Escape') {
 		const openedPopup = document.querySelector('.popup_opened');
 		closePopup(openedPopup);
@@ -98,8 +99,8 @@ initialCards.forEach((cardData) => {
 	renderCard(cardData, cardsContainer);
 });
 
-formEditCard.addEventListener('submit', handleSubmitEditForm);
-formAddCard.addEventListener('submit', handleSubmitAddNewCard);
+formEdit.addEventListener('submit', handleSubmitEditForm);
+formAdd.addEventListener('submit', handleSubmitAddNewCard);
 
 const formEditPopupValid = new FormValidator(validationConfig, popupEdit);
 formEditPopupValid.enableValidation();
