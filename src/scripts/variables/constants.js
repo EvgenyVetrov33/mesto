@@ -34,3 +34,9 @@ export const validationConfig = {
 	inputErrorClass: 'popup__input_type_error',
 	errorClass: 'error_visible'
 };
+
+export const popupsConfig = {
+	popupEditCard: '.popup-edit',
+	popupAddCard: '.popup-add',
+	popupImageOpen: '.popup-image',
+}
