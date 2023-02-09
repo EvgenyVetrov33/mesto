@@ -16,18 +16,19 @@ classEditPopup.setEventListeners();
 
 const classAddPopup = new PopupWithForm(popupsConfig.popupAddCard, handleSubmitAddNewCard);
 classAddPopup.setEventListeners();
-
+const imagePopupOpen = new PopupWithImage(popupsConfig.popupImageOpen);
+imagePopupOpen.setEventListeners();
 const userInfo = new UserInfo({
-	name: '.profile__title',
-	description: '.profile__paragraph'
+	nameSelector: '.profile__title',
+	descriptionSelector: '.profile__paragraph'
 });
 
 function openEditPopup() {
 	formEditPopupValid.resetValidation()
-	const { name, description } = userInfo.getUserInfo();
+	const { nameSelector, descriptionSelector } = userInfo.getUserInfo();
 
-	inputInfoName.value = name;
-	inputInfoJob.value = description;
+	inputInfoName.value = nameSelector;
+	inputInfoJob.value = descriptionSelector;
 
 	formEditPopupValid.toggleButtonState()
 	classEditPopup.open();
@@ -38,10 +39,9 @@ function openAddPopup() {
 	formAddPopupValid.toggleButtonState()
 	classAddPopup.open();
 }
-//const imagePopupOpen = new PopupWithImage(popupsConfig.popupImageOpen);
+
 function openImagePopup(title, url) {
-	const imagePopupOpen = new PopupWithImage(popupsConfig.popupImageOpen, { title, url });
-	imagePopupOpen.setEventListeners();
+
 	imagePopupOpen.open(title, url);
 }
 
@@ -49,21 +49,6 @@ function handlerSubmitEditForm(value) {
 	userInfo.setUserInfo(value.inputName, value.inputJob)
 	classEditPopup.close();
 }
-
-// function handleSubmitAddNewCard(value) {
-// 	// const newAddCard = {
-// 	// 	name: value.inputLabel,
-// 	// 	link: value.inputLink
-// 	// }
-// 	console.log(value);
-// 	// const cardSection = new Section({ items: newAddCard, renderer: renderCard }, '.elements')
-// 	//cardSection.renderItem(cardSection)
-// 	renderCard({ items: newAddCard, renderer: renderCard })
-
-// 	formAddPopupValid.resetValidation()
-// 	classAddPopup.close();
-// }
-
 
 function handleSubmitAddNewCard(value) {
 
@@ -74,27 +59,12 @@ function handleSubmitAddNewCard(value) {
 	classAddPopup.close();
 }
 
+function renderCard(item) {
+	return new Card(item, "#todo-template", () => imagePopupOpen.open(item)).generateCard();
+}
 
-// function renderCard(item) {
-// 	const card = new Card(item, "#todo-template", openImagePopup);
-// 	const cardElement = card.generateCard();
-// 	sectionCard.addItem(cardElement);
-// }
-
-const sectionCard = new Section({ items: initialCards, renderer: renderCard }, '.elements');
-sectionCard.renderItems(sectionCard)
-
-// const sectionCard = new Section({
-// 	items: initialCards,
-// 	renderer: (data) => {
-// 		const card = new Card(data, '#todo-template', openImagePopup);
-// 		return card.generateCard();
-// 	},
-// },
-// 	".elements"
-// );
-
-// sectionCard.renderCards();
+const sectionCard = new Section({ items: initialCards, renderer: (item) => sectionCard.addItem(renderCard(item)) }, '.elements');
+sectionCard.renderItems()
 
 buttonOpenEditPopup.addEventListener('click', () => openEditPopup());
 

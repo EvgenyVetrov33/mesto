@@ -35,15 +35,15 @@
 		<div class="popup__container">
 			<button type="button" class="popup__close"></button>
 			<h2 class="popup__title">Редактировать профиль</h2>
-			<form action="#" class="popup__form popup__form-edit" name="formEdit" novalidate>
+			<form class="popup__form popup__form-edit" name="formEdit" novalidate>
 				<label class="popup__label">
 					<input id="text-name" class="popup__input popup__input_input_name" name="inputName" type="text"
-						placeholder="Имя" value="" minlength="2" maxlength="40" required>
+						placeholder="Имя" minlength="2" maxlength="40" required>
 					<span id="text-name-error" class="error"></span>
 				</label>
 				<label class="popup__label">
 					<input id="text-profile" class="popup__input popup__input_input_job" name="inputJob" type="text"
-						placeholder="О себе" value="" minlength="2" maxlength="200" required>
+						placeholder="О себе" minlength="2" maxlength="200" required>
 					<span id="text-profile-error" class="error"></span>
 				</label>
 				<button type="submit" class="popup__button">Сохранить</button>
@@ -54,15 +54,15 @@
 		<div class="popup__container">
 			<button type="button" class="popup__close"></button>
 			<h2 class="popup__title">Новое место</h2>
-			<form action="#" class="popup__form popup__form-add" name="formAdd" novalidate>
+			<form class="popup__form popup__form-add" name="formAdd" novalidate>
 				<label class="popup__label">
 					<input id="text" class="popup__input popup__input_input_name" name="name" type="text"
-						placeholder="Название" value="" minlength="2" maxlength="30" required>
+						placeholder="Название" minlength="2" maxlength="30" required>
 					<span id="text-error" class="error"></span>
 				</label>
 				<label class="popup__label">
 					<input id="url" class="popup__input popup__input_input_job" name="link" type="url"
-						placeholder="Ссылка на картинку" value="" required>
+						placeholder="Ссылка на картинку" required>
 					<span id="url-error" class="error"></span>
 				</label>
 				<button type="submit" class="popup__button popup__button_disabled">Создать</button>

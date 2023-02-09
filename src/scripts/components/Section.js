@@ -9,26 +9,10 @@ export default class Section {
 	addItem(element) {
 		this._container.prepend(element);
 	}
-	// addItem(item) {
-	// 	this._container.prepend(this._renderer(item));
-	// }
 
-	renderItem(className) {
-		this._renderer(this._items, className);
-	}
-
-	renderItems(className) {
+	renderItems() {
 		this._items.forEach((item) => {
-			this._renderer(item, className);
+			this._renderer(item);
 		});
 	}
-	// renderCards() {
-	// 	this._clear();
-	// 	this._cards.forEach((card) => {
-	// 		this.addItem(card);
-	// 	});
-	// }
-	// _clear() {
-	// 	this._container.innerHTML = "";
-	// }
 }
