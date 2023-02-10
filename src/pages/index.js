@@ -16,8 +16,10 @@ classEditPopup.setEventListeners();
 
 const classAddPopup = new PopupWithForm(popupsConfig.popupAddCard, handleSubmitAddNewCard);
 classAddPopup.setEventListeners();
+
 const imagePopupOpen = new PopupWithImage(popupsConfig.popupImageOpen);
 imagePopupOpen.setEventListeners();
+
 const userInfo = new UserInfo({
 	nameSelector: '.profile__title',
 	descriptionSelector: '.profile__paragraph'
@@ -40,30 +42,24 @@ function openAddPopup() {
 	classAddPopup.open();
 }
 
-function openImagePopup(title, url) {
-
-	imagePopupOpen.open(title, url);
-}
-
 function handlerSubmitEditForm(value) {
 	userInfo.setUserInfo(value.inputName, value.inputJob)
 	classEditPopup.close();
 }
 
-function handleSubmitAddNewCard(value) {
-
-	const newCard = new Card(value, "#todo-template", openImagePopup).generateCard();
-
-	sectionCard.addItem(newCard)
+function handleSubmitAddNewCard(item) {
+	renderCard(item);
 	formAddPopupValid.resetValidation()
 	classAddPopup.close();
 }
 
 function renderCard(item) {
-	return new Card(item, "#todo-template", () => imagePopupOpen.open(item)).generateCard();
+	const newCard = new Card(item, "#todo-template", () =>
+		imagePopupOpen.open(item)).generateCard();
+	sectionCard.addItem(newCard);
 }
 
-const sectionCard = new Section({ items: initialCards, renderer: (item) => sectionCard.addItem(renderCard(item)) }, '.elements');
+const sectionCard = new Section({ items: initialCards, renderer: renderCard }, '.elements');
 sectionCard.renderItems()
 
 buttonOpenEditPopup.addEventListener('click', () => openEditPopup());
