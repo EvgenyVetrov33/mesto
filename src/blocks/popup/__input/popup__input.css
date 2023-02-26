@@ -26,10 +26,10 @@
 	.popup__input {
 		width: 100%;
 		padding: 10px 0px 8px 0px;
-		margin: 0px 0px 17px 0px;
+		margin: 0px 0px 0px 0px;
 	}
 
 	.popup__input:nth-child(2) {
-		margin: 0px 0px 50px 0px;
+		margin: 0px 0px 0px 0px;
 	}
 }
